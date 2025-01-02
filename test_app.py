@@ -25,6 +25,9 @@
 """
 from flask import Flask, render_template, request
 
+print(f"__name__: {__name__}")
+# __name__: __main__
+
 flask_app = Flask(__name__)
 
 @flask_app.route("/", methods=["GET", "POST"])
@@ -38,5 +41,6 @@ def index():
     # Render the HTML page and pass the 'name' to it
     return render_template("tim.html", name=name)
 
+# Ensures that the code block runs only when the script is executed directly, not when imported as a module.
 if __name__ == "__main__":
     flask_app.run(debug=False)
